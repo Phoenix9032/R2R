@@ -1,4 +1,4 @@
-FROM python:3.10-slim AS builder
+FROM python:3.14.0rc1-slim AS builder
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -28,7 +28,7 @@ RUN poetry config virtualenvs.create false \
 
 
 # Final stage to keep the image small
-FROM python:3.10-slim
+FROM python:3.14.0rc1-slim
 
 # Install runtime dependencies
 RUN apt-get update \
